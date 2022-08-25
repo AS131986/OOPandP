@@ -6,7 +6,18 @@ class RadioTest {
 
     @Test
     public void next() {
-        Radio radic = new Radio();
+        Radio radic = new Radio(10);
+        radic.setCurrentStation(8);
+        int expected = 9;
+        int actual = radic.next(radic.getCurrentStation());
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void nextStation() {
+        Radio radic = new Radio(10);
         radic.setCurrentStation(9);
         int expected = 0;
         int actual = radic.next(radic.getCurrentStation());
@@ -16,19 +27,8 @@ class RadioTest {
     }
 
     @Test
-    public void nextStation() {
-        Radio radic = new Radio();
-        radic.setCurrentStation(0);
-        int expected = 1;
-        int actual = radic.next(radic.getCurrentStation());
-
-        assertEquals(expected, actual);
-
-    }
-
-    @Test
     public void prev() {
-        Radio radic = new Radio();
+        Radio radic = new Radio(10);
         radic.setCurrentStation(9);
         int expected = 8;
         int actual = radic.prev(radic.getCurrentStation());
@@ -38,7 +38,7 @@ class RadioTest {
 
     @Test
     public void prevFirstToLast() {
-        Radio radic = new Radio();
+        Radio radic = new Radio(10);
         radic.setCurrentStation(0);
         int expected = 9;
         int actual = radic.prev(radic.getCurrentStation());
@@ -48,7 +48,7 @@ class RadioTest {
 
     @Test
     void setCurrentStation() {
-        Radio radic = new Radio();
+        Radio radic = new Radio(10);
         radic.setCurrentStation(8);
         int expected = 8;
         int actual = radic.getCurrentStation();
@@ -58,7 +58,7 @@ class RadioTest {
 
     @Test
     void setCurrentStationMoreLimit() {
-        Radio radic = new Radio();
+        Radio radic = new Radio(10);
         radic.setCurrentStation(10);
         int expected = 0;
         int actual = radic.getCurrentStation();

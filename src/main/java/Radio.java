@@ -1,7 +1,7 @@
 public class Radio {
     private int currentStation;
     private int volume;
-    private int countStation;
+    public int countStation;
 
     public Radio() {
 
@@ -19,7 +19,7 @@ public class Radio {
     }
 
     public int next(int ncurrentStation) {
-        if (ncurrentStation == this.countStation - 1) {
+        if (ncurrentStation >= this.countStation - 1) {
             ncurrentStation = 0;
 
         } else {
